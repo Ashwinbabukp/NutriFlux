@@ -110,7 +110,7 @@ export default function Navigation() {
       </aside>
 
       {/* Mobile Floating Bottom Navigation Bar */}
-      <nav className="md:hidden fixed bottom-4 left-4 right-4 bg-white/80 backdrop-blur-lg border border-slate-200/70 shadow-2xl rounded-2xl p-1 z-35 flex justify-around items-center">
+      <nav className="md:hidden fixed bottom-4 left-4 right-4 bg-white/80 backdrop-blur-lg border border-slate-200/70 shadow-2xl rounded-2xl p-1 z-50 flex justify-around items-center">
         {navItems.map((item) => {
           const isActive = pathname === item.path;
           return (

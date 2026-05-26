@@ -65,6 +65,24 @@ export const nutritionDatabase: Record<string, Nutrition> = {
   'egg curry': { calories: 127, protein: 8.7, carbs: 4, fat: 8 },
   'egg roast': { calories: 127, protein: 8.7, carbs: 4, fat: 8 },
   payasam: { calories: 167, protein: 2.7, carbs: 30, fat: 4 },
+  sambharam: { calories: 30, protein: 1.5, carbs: 2.5, fat: 1.5 },
+  'tender coconut water': { calories: 19, protein: 0.7, carbs: 3.7, fat: 0.2 },
+  karikku: { calories: 19, protein: 0.7, carbs: 3.7, fat: 0.2 },
+  'kulukki sarbath': { calories: 65, protein: 0.4, carbs: 16.5, fat: 0.1 },
+  sulaimani: { calories: 20, protein: 0.1, carbs: 5.0, fat: 0.0 },
+  'chukku kappi': { calories: 25, protein: 0.2, carbs: 6.0, fat: 0.0 },
+  'nannari sarbath': { calories: 85, protein: 0.1, carbs: 21.0, fat: 0.0 },
+  'jeeraka vellam': { calories: 2, protein: 0.0, carbs: 0.5, fat: 0.0 },
+  pathimugam: { calories: 1, protein: 0.0, carbs: 0.2, fat: 0.0 },
+  'black coffee': { calories: 2, protein: 0.1, carbs: 0.0, fat: 0.0 },
+  'coffee with milk': { calories: 40, protein: 2.0, carbs: 4.0, fat: 1.8 },
+  'black tea': { calories: 1, protein: 0.0, carbs: 0.2, fat: 0.0 },
+  'tea with milk': { calories: 45, protein: 1.8, carbs: 4.5, fat: 2.0 },
+  chai: { calories: 45, protein: 1.8, carbs: 4.5, fat: 2.0 },
+  'green tea': { calories: 1, protein: 0.0, carbs: 0.0, fat: 0.0 },
+  'lime juice': { calories: 35, protein: 0.3, carbs: 9.0, fat: 0.1 },
+  'orange juice': { calories: 45, protein: 0.7, carbs: 10.4, fat: 0.2 },
+  toddy: { calories: 55, protein: 0.3, carbs: 6.0, fat: 0.1 },
 };
 
 export const foodServings: Record<string, { size: number; unit: string }> = {
@@ -110,6 +128,24 @@ export const foodServings: Record<string, { size: number; unit: string }> = {
   'egg curry': { size: 150, unit: 'bowl (150g)' },
   'egg roast': { size: 150, unit: 'bowl (150g)' },
   payasam: { size: 150, unit: 'cup (150g)' },
+  sambharam: { size: 200, unit: 'glass (200ml)' },
+  'tender coconut water': { size: 250, unit: 'coconut (250ml)' },
+  karikku: { size: 250, unit: 'coconut (250ml)' },
+  'kulukki sarbath': { size: 250, unit: 'glass (250ml)' },
+  sulaimani: { size: 150, unit: 'glass (150ml)' },
+  'chukku kappi': { size: 150, unit: 'cup (150ml)' },
+  'nannari sarbath': { size: 250, unit: 'glass (250ml)' },
+  'jeeraka vellam': { size: 250, unit: 'glass (250ml)' },
+  pathimugam: { size: 250, unit: 'glass (250ml)' },
+  'black coffee': { size: 150, unit: 'cup (150ml)' },
+  'coffee with milk': { size: 150, unit: 'cup (150ml)' },
+  'black tea': { size: 150, unit: 'cup (150ml)' },
+  'tea with milk': { size: 150, unit: 'cup (150ml)' },
+  chai: { size: 150, unit: 'cup (150ml)' },
+  'green tea': { size: 150, unit: 'cup (150ml)' },
+  'lime juice': { size: 250, unit: 'glass (250ml)' },
+  'orange juice': { size: 250, unit: 'glass (250ml)' },
+  toddy: { size: 300, unit: 'bottle/glass (300ml)' },
 };
 
 export const quickFoods = [
@@ -153,10 +189,21 @@ export const keralaCuisineCategories = [
   {
     category: 'Snacks & Sweets 🍌',
     items: [
-      { food: 'pazham pori', label: 'Pazham Fori', calories: 180, desc: 'Sweet banana fritters' },
+      { food: 'pazham pori', label: 'Pazham Pori', calories: 180, desc: 'Sweet banana fritters' },
       { food: 'unniyappam', label: 'Unniyappam', calories: 110, desc: 'Sweet round rice fritters' },
       { food: 'ada pradhaman', label: 'Ada Pradhaman', calories: 320, desc: 'Traditional rich jaggery payasam' },
       { food: 'payasam', label: 'Payasam', calories: 250, desc: 'Sweet milk pudding' },
+    ]
+  },
+  {
+    category: 'Drinks & Beverages ☕🥤',
+    items: [
+      { food: 'sambharam', label: 'Sambharam (Spiced Buttermilk)', calories: 60, desc: 'Cooling buttermilk spiced with ginger, green chillies & curry leaves' },
+      { food: 'tender coconut water', label: 'Tender Coconut (Karikku)', calories: 48, desc: 'Fresh local electrolyte-rich tender coconut water' },
+      { food: 'sulaimani', label: 'Sulaimani Tea', calories: 30, desc: 'Tangy and sweet spiced lemon black tea' },
+      { food: 'kulukki sarbath', label: 'Kulukki Sarbath', calories: 160, desc: 'Shaken sweet lemon juice with basil seeds' },
+      { food: 'chukku kappi', label: 'Chukku Kappi', calories: 38, desc: 'Dry ginger coffee sweetened with health-friendly palm jaggery' },
+      { food: 'toddy', label: 'Toddy', calories: 165, desc: 'Mildly fermented traditional palm juice' },
     ]
   }
 ];
@@ -332,7 +379,14 @@ export function AppContextProvider({ children }: { children: React.ReactNode }) 
   const [entries, setEntries] = useState<Entry[]>([]);
   const [mounted, setMounted] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
-  const [dailyCalorieGoal, setDailyCalorieGoal] = useState(2000);
+  const [dailyCalorieGoal, _setDailyCalorieGoal] = useState(2000);
+
+  const setDailyCalorieGoal = (goal: number) => {
+    _setDailyCalorieGoal(goal);
+    if (currentUser) {
+      localStorage.setItem(`nutriflux_goal_${currentUser}`, String(goal));
+    }
+  };
 
   // Auth State
   const [currentUser, setCurrentUser] = useState<string | null>(null);
@@ -361,9 +415,9 @@ export function AppContextProvider({ children }: { children: React.ReactNode }) 
     const savedGoal = localStorage.getItem(`nutriflux_goal_${email}`);
     if (savedGoal) {
       const g = Number(savedGoal);
-      setDailyCalorieGoal(g > 0 ? g : 2000);
+      _setDailyCalorieGoal(g > 0 ? g : 2000);
     } else {
-      setDailyCalorieGoal(2000);
+      _setDailyCalorieGoal(2000);
     }
   };
 
@@ -434,18 +488,6 @@ export function AppContextProvider({ children }: { children: React.ReactNode }) 
     setSelectedDate(getTodayDateString());
     setMounted(true);
   }, []);
-
-  useEffect(() => {
-    if (mounted && currentUser) {
-      localStorage.setItem(`nutriflux_entries_${currentUser}`, JSON.stringify(entries));
-    }
-  }, [entries, currentUser, mounted]);
-
-  useEffect(() => {
-    if (mounted && currentUser) {
-      localStorage.setItem(`nutriflux_goal_${currentUser}`, String(dailyCalorieGoal));
-    }
-  }, [dailyCalorieGoal, currentUser, mounted]);
 
   // Auth Operations
   const handleSendOtp = () => {
@@ -542,7 +584,7 @@ export function AppContextProvider({ children }: { children: React.ReactNode }) 
     localStorage.removeItem('nutriflux_current_user');
     setCurrentUser(null);
     setEntries([]);
-    setDailyCalorieGoal(2000);
+    _setDailyCalorieGoal(2000);
   };
 
   // Date Navigation handlers
@@ -597,12 +639,24 @@ export function AppContextProvider({ children }: { children: React.ReactNode }) 
       date: selectedDate || getTodayDateString(),
     };
 
-    setEntries((prev) => [newEntry, ...prev]);
+    setEntries((prev) => {
+      const updated = [newEntry, ...prev];
+      if (currentUser) {
+        localStorage.setItem(`nutriflux_entries_${currentUser}`, JSON.stringify(updated));
+      }
+      return updated;
+    });
     return { success: true, message: `Successfully added "${newEntry.name}"!` };
   };
 
   const handleRemoveEntry = (id: string) => {
-    setEntries((prev) => prev.filter((e) => e.id !== id));
+    setEntries((prev) => {
+      const updated = prev.filter((e) => e.id !== id);
+      if (currentUser) {
+        localStorage.setItem(`nutriflux_entries_${currentUser}`, JSON.stringify(updated));
+      }
+      return updated;
+    });
   };
 
   return (
